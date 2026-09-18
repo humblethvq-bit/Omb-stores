@@ -57,7 +57,7 @@ function buildProductEnquiryMessage(product, qty = 1) {
     "",
     `Product: ${product.name}`,
     `Quantity: ${qty}`,
-    `Price: GH₵${(product.price * qty).toLocaleString()}`,
+    product.price == null ? "Price: On request" : `Price: GH₵${(product.price * qty).toLocaleString()}`,
   ];
   return lines.join("\n");
 }
@@ -97,7 +97,7 @@ function buildInstallmentMessage(product) {
     `Hi ${BUSINESS_NAME}, I'd like to enquire about installment payments.`,
     "",
     `Phone: ${product.name}`,
-    `Advertised price: GH₵${product.price.toLocaleString()}`,
+    product.price == null ? "Advertised price: On request" : `Advertised price: GH₵${product.price.toLocaleString()}`,
     "",
     "Please let me know the deposit amount, plan duration and eligibility.",
   ];
@@ -181,6 +181,49 @@ const P = (o) => ({
 
 const PRODUCTS = [
   P({ name: "iPhone 13", brand: "Apple", category: "Smartphones", price: 4200, previousPrice: 4800, featured: true, installment: true, description: "Reconditioned iPhone 13 with A15 Bionic chip, dual camera system and all-day battery life.", specs: ["128GB storage", "6.1\" Super Retina XDR", "Dual 12MP camera", "Face ID"] }),
+  P({ name: "iPhone 5", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 5. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 5s", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 5s. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 6", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 6. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 6 Plus", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 6 Plus. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 6s", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 6s. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 6s Plus", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 6s Plus. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 7", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 7. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 7 Plus", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 7 Plus. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 8", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 8. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 8 Plus", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 8 Plus. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone X", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone X. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone XR", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone XR. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone XS", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone XS. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone XS Max", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone XS Max. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 11", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 11. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 11 Pro", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 11 Pro. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 11 Pro Max", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 11 Pro Max. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 12", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 12. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 12 mini", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 12 mini. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 12 Pro", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 12 Pro. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 12 Pro Max", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 12 Pro Max. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 13 mini", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 13 mini. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 13 Pro", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 13 Pro. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 13 Pro Max", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 13 Pro Max. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 14", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 14. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 14 Plus", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 14 Plus. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 14 Pro", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 14 Pro. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 14 Pro Max", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 14 Pro Max. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 15", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 15. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 15 Plus", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 15 Plus. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 15 Pro", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 15 Pro. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 15 Pro Max", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 15 Pro Max. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 16", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 16. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 16 Plus", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 16 Plus. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 16 Pro", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 16 Pro. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 16 Pro Max", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 16 Pro Max. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 17", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 17. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 17 Air", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 17 Air. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 17 Pro", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 17 Pro. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 17 Pro Max", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 17 Pro Max. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 18 Pro", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 18 Pro. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone 18 Pro Max", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone 18 Pro Max. Price is on request.", specs: ["Catalog model", "Price on request"] }),
+  P({ name: "iPhone Duo", brand: "Apple", category: "Smartphones", price: null, description: "Apple iPhone Duo. Price is on request.", specs: ["Catalog model", "Price on request"] }),
   P({ name: "Samsung Galaxy A54", brand: "Samsung", category: "Smartphones", price: 3600, featured: true, installment: true, description: "Vibrant AMOLED display, 50MP camera and long battery life for everyday use.", specs: ["128GB storage", "6.4\" Super AMOLED", "50MP triple camera", "5000mAh battery"] }),
   P({ name: "Tecno Camon 20", brand: "Tecno", category: "Smartphones", price: 2450, previousPrice: 2750, featured: true, installment: true, description: "Sharp 64MP camera and smooth performance built for Ghanaian creators.", specs: ["256GB storage", "6.67\" AMOLED", "64MP camera", "5000mAh battery"] }),
   P({ name: "Infinix Note 30", brand: "Infinix", category: "Smartphones", price: 2600, installment: true, description: "Fast charging flagship-grade display for a mid-range price.", specs: ["256GB storage", "6.78\" AMOLED", "108MP camera", "45W fast charge"] }),
@@ -386,16 +429,15 @@ function Logo({ onClick }) {
 
 function Price({ price, previousPrice, size = "md" }) {
   const cls = size === "lg" ? "text-2xl" : "text-base";
+  if (price == null) {
+    return <div className="flex items-baseline gap-2 flex-wrap"><span style={{ fontFamily: "'JetBrains Mono', monospace", color: C.gold }} className={`font-semibold ${cls}`}>Price on request</span></div>;
+  }
   return (
     <div className="flex items-baseline gap-2 flex-wrap">
       <span style={{ fontFamily: "'JetBrains Mono', monospace", color: C.gold }} className={`font-semibold ${cls}`}>
         GH₵{price.toLocaleString()}
       </span>
-      {previousPrice && (
-        <span style={{ color: C.faint, fontFamily: "'JetBrains Mono', monospace" }} className="text-xs line-through">
-          GH₵{previousPrice.toLocaleString()}
-        </span>
-      )}
+      {previousPrice && <span style={{ color: C.faint, fontFamily: "'JetBrains Mono', monospace" }} className="text-xs line-through">GH₵{previousPrice.toLocaleString()}</span>}
     </div>
   );
 }
@@ -569,6 +611,7 @@ function ProductCard({ product, onOpen, onAddToCart }) {
   const Icon = ICONS[product.category] || Smartphone;
   const status = getStockStatus(product);
   const outOfStock = status === "Out of Stock";
+  const priceOnRequest = product.price == null;
 
   return (
     <div
@@ -593,11 +636,11 @@ function ProductCard({ product, onOpen, onAddToCart }) {
           <Button
             variant="primary"
             onClick={() => onAddToCart(product)}
-            disabled={outOfStock}
-            ariaLabel={outOfStock ? `${product.name} is out of stock` : `Add ${product.name} to cart`}
+            disabled={outOfStock || priceOnRequest}
+            ariaLabel={outOfStock ? `${product.name} is out of stock` : priceOnRequest ? `${product.name} price is on request` : `Add ${product.name} to cart`}
             className="flex-1 !px-3 !py-2 text-xs"
           >
-            <ShoppingCart size={14} /> {outOfStock ? "Out of Stock" : "Add"}
+            <ShoppingCart size={14} /> {outOfStock ? "Out of Stock" : priceOnRequest ? "Ask Price" : "Add"}
           </Button>
           <WaButton
             message={buildProductEnquiryMessage(product)}
@@ -1752,6 +1795,7 @@ export default function App() {
   };
 
   const handleAddToCart = (product, qty = 1) => {
+    if (product.price == null) { notify(`${product.name}: price on request`); return { ok: false, reason: "price-on-request" }; }
     const result = addToCart(product, qty);
     if (result.ok) notify(`${product.name} added to cart`);
     else notify(`${product.name} is out of stock`);
